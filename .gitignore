@@ -141,3 +141,20 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Environment variables
+.env
+
+# React build output
+frontend/build/
+
+# Backend build/output (if any)
+backend/dist/
+
+# Coverage reports
+coverage/
+
+# IDE / OS files
+.vscode/
+.DS_Store
+Thumbs.db
