@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { API_URL } from "../config";
 
 function AddLead() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [source, setSource] = useState("");
-  const [notes, setNotes] = useState("");   // ✅ New notes field
+  const [notes, setNotes] = useState("");   
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -95,7 +96,7 @@ function AddLead() {
                 <option value="Other">Other</option>
               </select>
             </div>
-            {/* ✅ Notes field */}
+      
             <div className="mb-3">
               <label className="form-label fw-bold">Notes</label>
               <textarea
