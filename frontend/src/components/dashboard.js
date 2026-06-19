@@ -11,7 +11,20 @@ function Dashboard() {
   const fetchLeads = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:5000/api/leads", {
+      const response = await fetch("import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import { API_URL } from "../config";   // ✅ import API_URL
+
+function Dashboard() {
+  const [leads, setLeads] = useState([]);
+  const [error, setError] = useState("");
+
+  const fetchLeads = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch(`${API_URL}/api/leads`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -31,7 +44,7 @@ function Dashboard() {
     const token = localStorage.getItem("token");
     if (!window.confirm("Delete this lead?")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/leads/${id}`, {
+      const response = await fetch(`${API_URL}/api/leads/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });
