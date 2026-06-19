@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { API_URL } from "../config";
 
 function LeadDetails() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ function LeadDetails() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/api/leads/${id}`, {
+    fetch(`${API_URL}/api/leads/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -25,7 +26,7 @@ function LeadDetails() {
 
   const addNote = async () => {
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:5000/api/leads/${id}/notes`, {
+    await fetch(`${API_URL}/api/leads/${id}/notes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +35,7 @@ function LeadDetails() {
       body: JSON.stringify({ note })
     });
     setNote("");
-    const res = await fetch(`http://localhost:5000/api/leads/${id}`, {
+    const res = await fetch(`${API_URL}/api/leads/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const updated = await res.json();
@@ -43,7 +44,7 @@ function LeadDetails() {
 
   const saveEdit = async () => {
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:5000/api/leads/${id}`, {
+    await fetch(`${API_URL}/api/leads/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +53,7 @@ function LeadDetails() {
       body: JSON.stringify(editData)
     });
     setEditing(false);
-    const res = await fetch(`http://localhost:5000/api/leads/${id}`, {
+    const res = await fetch(`${API_URL}/api/leads/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const updated = await res.json();
