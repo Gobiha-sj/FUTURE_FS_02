@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { API_URL } from "../config"; 
+
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
