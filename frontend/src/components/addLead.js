@@ -17,7 +17,7 @@ function AddLead() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("${API_URL}/api/leads", {
+      const res = await fetch(`${API_URL}/api/leads`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
